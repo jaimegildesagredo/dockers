@@ -1,0 +1,13 @@
+#!/bin/bash
+
+xhost +
+docker run \
+    --rm \
+    -e DISPLAY=$DISPLAY \
+    -e HOME=/home/inkscape \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /data/jaimegildesagredo:/data \
+    -v /home/jaimegildesagredo:/jaimegildesagredo \
+    -ti \
+    b67837cbe351 \
+    inkscape

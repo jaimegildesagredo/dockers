@@ -1,0 +1,8 @@
+#!/bin/bash
+
+docker \
+    run \
+    -v $HOME/downloads:/downloads \
+    -u 1000 \
+    transmission-cli \
+    transmission-cli -w /downloads $@
