@@ -1,0 +1,10 @@
+#!/bin/bash
+
+xhost +
+
+docker run \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v ~/.secrets:/secrets \
+    keepass2 \
+    keepass2 /secrets/${USER}.kdbx
