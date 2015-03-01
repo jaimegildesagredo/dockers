@@ -1,3 +1,5 @@
+all: build
+
 build:
 	docker build -t keepass2 .
 
