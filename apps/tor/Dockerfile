@@ -3,8 +3,12 @@ MAINTAINER Jaime Gil de Sagredo Luna "jaimegildesagredo@gmail.com"
 
 ADD mirrorlist /etc/pacman.d/mirrorlist
 RUN pacman -Syu --noconfirm
-RUN pacman -S --noconfirm imagemagick
-RUN pacman -S --noconfirm librsvg
+RUN pacman-db-upgrade
+RUN pacman -S --noconfirm tor
+RUN pacman -S --noconfirm chromium
 
-RUN useradd -m -u 1000 imagemagick
-USER imagemagick
+ADD run.sh /run.sh
+
+USER tor
+
+CMD "/run.sh"

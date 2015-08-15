@@ -7,7 +7,8 @@ docker run \
     -e HOME=/home/gimp \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /data/jaimegildesagredo:/data \
-    -v /home/jaimegildesagredo:/jaimegildesagredo \
+    -v $HOME:$HOME \
     -ti \
     a6987f1653e3 \
-    gimp
+    gimp \
+    $@

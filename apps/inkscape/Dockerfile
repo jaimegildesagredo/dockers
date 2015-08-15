@@ -5,6 +5,7 @@ ADD mirrorlist /etc/pacman.d/mirrorlist
 RUN pacman -Syu --noconfirm
 RUN pacman -S --noconfirm inkscape
 RUN pacman -S --noconfirm ttf-dejavu
+RUN pacman -S --noconfirm python2-lxml
 
 RUN useradd -m -u 1000 inkscape
 USER inkscape
