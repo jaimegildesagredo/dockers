@@ -1,0 +1,19 @@
+#!/bin/bash
+
+CALIBRE_LIBRARY_PATH=/library
+
+xhost +
+
+docker run \
+    --rm \
+    -e DISPLAY=$DISPLAY \
+    -e QT_X11_NO_MITSHM=1 \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v /dev/dri:/dev/dri \
+    -v /data/jaimegildesagredo:/data:ro \
+    -v /data/jaimegildesagredo/calibre-library:$CALIBRE_LIBRARY_PATH \
+    -u `id -u`:`id -g` \
+    jaimegildesagredo/calibre \
+    calibre --with-library $CALIBRE_LIBRARY_PATH
+
+xhost -
